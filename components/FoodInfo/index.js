@@ -1,17 +1,18 @@
 import React from 'react'
-import { Image, Text, TouchableOpacity, View } from 'react-native'
-import Animated from 'react-native-reanimated'
+import { Animated, Image, Text, TouchableOpacity, View } from 'react-native'
 import { icons } from '../../constants'
 import { Styles } from './styles'
 
-const FoodInfo = ({ foods }) => (
+const FoodInfo = ({ foods, scrollX, getOrderQty, onQty }) => (
   <Animated.ScrollView
     horizontal
     pagingEnabled
     scrollEventThrottle={16}
     snapToAlignment='center'
     showsHorizontalScrollIndicator={false}
-    onScroll={() => {}}
+    onScroll={Animated.event([
+      { nativeEvent: { contentOffset: { x: scrollX } } }
+    ], { useNativeDriver: false })}
   >
     {foods?.map((food, index) => (
       <View
@@ -22,17 +23,29 @@ const FoodInfo = ({ foods }) => (
 
           <View style={Styles.quantityView}>
             <TouchableOpacity
-              style={[ Styles.quantityBackground, { borderTopLeftRadius: 25, borderBottomLeftRadius: 25 }]}
+              style={[
+                Styles.quantityBackground,
+                {
+                  borderTopLeftRadius: 25,
+                  borderBottomLeftRadius: 25
+                }
+              ]}
+              onPress={() => onQty('-', food.menuId, food.price)}
             >
               <Text style={Styles.minorMajor}>-</Text>
             </TouchableOpacity>
 
             <View style={Styles.quantityBackground}>
-              <Text style={Styles.quantityText}>5</Text>
+              <Text style={Styles.quantityText}>{getOrderQty(food.menuId)}</Text>
             </View>
 
             <TouchableOpacity
-              style={{ ...Styles.quantityBackground, borderTopRightRadius: 25, borderBottomRightRadius: 25 }}
+              style={{
+                ...Styles.quantityBackground,
+                borderTopRightRadius: 25,
+                borderBottomRightRadius: 25
+              }}
+              onPress={() => onQty('+', food.menuId, food.price)}
             >
               <Text style={Styles.minorMajor}>+</Text>
             </TouchableOpacity>
