@@ -3,16 +3,14 @@ import { SafeAreaView } from 'react-native'
 
 import { Styles } from './styles'
 
-import { HomeHeader, MainCategories, RestaurantList } from '../../components'
+import { Header, MainCategories, RestaurantList } from '../../components'
 
 import {
   initialCurrentLocation,
   restaurantData,
   categoryData,
-  affordable,
-  fairPrice,
-  expensive
 } from './data'
+import { icons } from '../../constants'
 
 const Home = ({ navigation: { navigate } }) => {
   const [categories, setCategories] = React.useState(categoryData)
@@ -37,7 +35,11 @@ const Home = ({ navigation: { navigate } }) => {
 
   return (
   <SafeAreaView style={Styles.container}>
-    <HomeHeader location={currentLocation.streetName} />
+    <Header
+      iconLeft={icons.nearby}
+      info={currentLocation.streetName}
+      iconRight={icons.basket}
+    />
     <MainCategories
       categories={categories}
       onCategory={onSelectCategory}

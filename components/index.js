@@ -1,5 +1,6 @@
-import HomeHeader from './HomeHeader'
+import Header from './Header'
 import MainCategories from './MainCategories'
 import RestaurantList from './RestaurantList'
+import FoodInfo from './FoodInfo'
 
-export { HomeHeader, MainCategories, RestaurantList }
+export { Header, MainCategories, RestaurantList, FoodInfo }

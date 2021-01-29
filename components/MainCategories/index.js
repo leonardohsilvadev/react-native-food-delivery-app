@@ -1,6 +1,5 @@
 import React from 'react'
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
-import { COLORS, FONTS, SIZES } from '../../constants'
 import { Styles } from './styles'
 
 const TouchableCategory = ({ item, onCategory, isSelected }) => (
@@ -17,16 +16,16 @@ const TouchableCategory = ({ item, onCategory, isSelected }) => (
 )
 
 const MainCategories = ({ categories, onCategory, isSelected }) => (
-  <View style={{ padding: SIZES.padding * 2 }}>
-    <Text style={{ ...FONTS.h1 }}>Main</Text>
-    <Text style={{ ...FONTS.h1 }}>Categories</Text>
+  <View style={Styles().categoriesView}>
+    <Text style={Styles().categoriesTitle}>Main</Text>
+    <Text style={Styles().categoriesTitle}>Categories</Text>
 
     <FlatList
       data={categories}
       horizontal
       showsHorizontalScrollIndicator={false}
       keyExtractor={item => String(item.id)}
-      contentContainerStyle={{ paddingHorizontal: SIZES.padding * 2 }}
+      contentContainerStyle={Styles().listContainer}
       renderItem={({ item }) => (
         <TouchableCategory
           item={item}

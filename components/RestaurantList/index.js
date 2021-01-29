@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlatList, Image, View, TouchableOpacity, Text } from 'react-native'
-import { COLORS, FONTS, icons, SIZES } from '../../constants'
+import { COLORS, icons } from '../../constants'
 import { Styles } from './styles'
 
 const Restaurants = ({ item, getCategoryName, currentLocation, navigate }) => (

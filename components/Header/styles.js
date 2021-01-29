@@ -6,7 +6,7 @@ export const Styles = StyleSheet.create({
     flexDirection: 'row',
     height: 50
   },
-  touchableNearby: {
+  iconLeft: {
     width: 50,
     paddingLeft: SIZES.padding * 2,
     justifyContent: 'center'
@@ -31,7 +31,7 @@ export const Styles = StyleSheet.create({
   locationText: {
     ...FONTS.h3
   },
-  touchableBasket: {
+  iconRight: {
     width: 50,
     paddingRight: SIZES.padding * 2,
     justifyContent: 'center'

@@ -2,6 +2,15 @@ import { StyleSheet } from 'react-native'
 import { COLORS, FONTS, SIZES } from '../../constants'
 
 export const Styles = (isSelected) => StyleSheet.create({
+  categoriesView: {
+    padding: SIZES.padding * 2
+  },
+  categoriesTitle: {
+    ...FONTS.h1
+  },
+  listContainer: {
+    paddingHorizontal: SIZES.padding * 2
+  },
   categoryTouchable: {
     padding: SIZES.padding,
     paddingBottom: SIZES.padding * 2,
